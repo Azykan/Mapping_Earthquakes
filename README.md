@@ -9,6 +9,7 @@ To complete this project, I used a URL for GeoJSON earthquake data from the USGS
 ### Approach
 - Use the JavaScript and the D3.js library to retrieve the coordinates and magnitudes of the earthquakes from the GeoJSON data. 
 - Use the Leaflet library to plot the data on a Mapbox map through an API request and create interactivity for the earthquake data.
+- Use Content Delivery Network (CDN) to provide a link to downloadable resources, such as Plotly library code. Using this particular CDN ensures that the most up-to-date version of Plotly is always delivered.
 ### Tools used
 - VS Code: a text editor to create and edit HTML and JavaScript files.
 - Web browser: Chrome, to view, inspect, and debug my visualizations.

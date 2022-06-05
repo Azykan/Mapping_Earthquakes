@@ -28,7 +28,7 @@ let baseMaps = {
 // Create the map object with a center and zoom level.
 let map = L.map("mapid", {
   center: [
-    30, 30
+    44.0, -80.0
   ],
   zoom: 2,
   layers: [streets]
@@ -36,10 +36,13 @@ let map = L.map("mapid", {
 
 L.control.layers(baseMaps).addTo(map);
 
-let airportData = "https://raw.githubusercontent.com/Azykan/Mapping_Earthquakes/main/majorAirports.json" ;
+// Accessing the Toronto airline routes GeoJSON URL.
+let torontoData = "https://raw.githubusercontent.com/Azykan/Mapping_Earthquakes/main/torontoRoutes.json";
+//let airportData = "https://raw.githubusercontent.com/Azykan/Mapping_Earthquakes/main/majorAirports.json" ;
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
+  //d3.json(airportData).then(function(data) {
+  d3.json(torontoData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
 L.geoJSON(data).addTo(map);

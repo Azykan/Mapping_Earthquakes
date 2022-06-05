@@ -40,10 +40,21 @@ L.control.layers(baseMaps).addTo(map);
 let torontoData = "https://raw.githubusercontent.com/Azykan/Mapping_Earthquakes/main/torontoRoutes.json";
 //let airportData = "https://raw.githubusercontent.com/Azykan/Mapping_Earthquakes/main/majorAirports.json" ;
 
+// Create a style for the lines.
+let myStyle = {
+  color: "#ffffa1",
+  weight: 2
+}
 // Grabbing our GeoJSON data.
   //d3.json(airportData).then(function(data) {
-  d3.json(torontoData).then(function(data) {
+d3.json(torontoData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJSON(data).addTo(map);
+L.geoJSON(data, {
+  style: myStyle,
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3> <hr><h3> Destination: " + feature.Properties.dst + "</h3>");
+  }
+})
+.addTo(map);
 });
